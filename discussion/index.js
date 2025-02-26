@@ -134,3 +134,103 @@ let person = {
   age: 23,
   address: ["Makati", "San Pedro"],
 };
+
+/*
+typeof operator is used to determine the type of data or the avlue of a variable, It outputs a string
+
+*/
+console.log(typeof person);
+
+//Notw: array is a special type of object with methods and fucntions to manipulate it.
+
+console.log(typeof grades);
+
+console.log(typeof interest);
+
+//anime[0] = ["demon slayer"];
+
+/*
+  Constant Object and Arrays
+    The keywork const is a little misleading
+
+    It does not define a constant value. It defines a constant reference to a value
+
+    Because of this you can NOT:
+      -reaasign a constant value
+      -reaasign a constant array
+      -reaasign a constant object
+
+      But you CAN:
+        - change the elements of constant array
+        - change the properties of a constant object
+*/
+//Null is used to intentionally express the absence of a value in a variable declation/initialization
+// numm simple means that a data type was assigned to a variable but it does not hold any value/amount or is nullified
+
+//type coercion = implicit
+let spouse = null;
+let juan = "";
+let result = "5" + 1;
+console.log(result);
+
+// type conversion = explicit
+let num = "5";
+num = Number(num);
+console.log(num);
+
+//undefined represents the state of a variable that has been declared but without an assigned value
+
+//let fullName;
+//console.log(funnName);
+
+//numm vs undefined
+// undefined a variable was created but was not provided a vlue, null means that a variable was created and was assign a value that does not hold any value/amount
+
+console.log(spouse);
+
+let products = [
+  { name: "banana", price: 1, stockQuantity: 1, category: "fruits" },
+  {
+    name: "apple",
+    price: 1,
+    stockQuantity: 1,
+    category: "fruits",
+  },
+];
+
+function add(name, price, stock, category) {
+  let product = {
+    name: name,
+    price: price,
+    stockQuantity: stock,
+    category: category,
+  };
+  products[products.length] = product;
+  console.log("Added new product");
+}
+
+function update(index, name, price, stock, category) {
+  let product = {
+    name: name != undefined ? name : products[index].name,
+    price: price != undefined ? price : products[index].price,
+    stockQuantity: stock != undefined ? stock : products[index].stockQuantity,
+    category: category != undefined ? category : products[index].category,
+  };
+  products[index] = product;
+  console.log("Updated Index " + index + " products");
+}
+function remove(index) {
+  products.splice(index, 1);
+  console.log("Deleted Index " + index + " product");
+}
+function displayAll() {
+  products.forEach((pr) => {
+    if (pr.name)
+      console.log(
+        pr.name + ", " + pr.price + ", " + pr.stockQuantity + ", " + pr.category
+      );
+  });
+}
+function displayOne(index) {
+  console.log(products[index]);
+}
