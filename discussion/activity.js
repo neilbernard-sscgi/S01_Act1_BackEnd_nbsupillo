@@ -60,10 +60,13 @@ while (stop == false) {
       console.log("Deleted Index " + index + " product");
     }
   } else if (operations == 4) {
-    products.forEach((pr) => {
-      if (pr.name)
+    for (let i = 0; i < products.length; i++) {
+      let pr = products[i]; // Get the current product
+      if (pr.name) {
         console.log(
-          pr.name +
+          i +
+            ": " +
+            pr.name +
             ", " +
             pr.price +
             ", " +
@@ -71,7 +74,8 @@ while (stop == false) {
             ", " +
             pr.category
         );
-    });
+      }
+    }
   } else if (operations == 5) {
     let index = prompt("input the index");
 
